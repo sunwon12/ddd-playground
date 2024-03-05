@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${RDS_ENDPOINT}
+    username: ${RDS_USERNAME}
+    password: ${RDS_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true
+  data:
+    redis:
+      host: ${REDIS_ENDPOINT}
+      port: 6379
+
+logging:
+  slack:
+    webhook-uri: ${SLACK_URL}
+  config: classpath:logback-spring.xml
+
+jwt:
+  secretkey: ${SECRETKEY}
+  accessTokenExpiration: 86400000
+  refreshTokenExpiration: 604800000
+
+
+cloud:
+  aws:
+    s3:
+      bucket: uglypotato-bucket
+    credentials:
+      access-key: ${AWS_ACCESSKEY}
+      secret-key: ${AWS_SECRETKEY}
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+
+email:
+  id: uglypotato5913@gmail.com
+  password: ldushxapuefwqfxn
+  expiration: 300000
+
+imp:
+  api-key: ${API_KEY}
+  api-secret-key: ${API_SECRET_KEY}
