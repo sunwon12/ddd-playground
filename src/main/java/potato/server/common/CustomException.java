@@ -3,10 +3,7 @@ package potato.server.common;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-/**
- * @author 정순원
- * @since 23-10-13
- */
+
 @Getter
 public class CustomException extends RuntimeException {
     private final HttpStatus httpStatus; // HTTP 상태 코드
